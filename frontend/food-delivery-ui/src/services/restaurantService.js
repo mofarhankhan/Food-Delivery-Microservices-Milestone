@@ -1,7 +1,7 @@
 import API from "./api";
 
 // export const getRestaurants = async (city) => {
-//     const response = await API.get(`/api/restaurants?city=${city}`);
+//     const response = await API.get(`/restaurants?city=${city}`);
 //     console.log("RAW DATA:", response.data); // ← yeh add karo
 //     return (response.data || []).map(r => ({
 //         ...r,
@@ -9,7 +9,7 @@ import API from "./api";
 //     }));
 // };
 export const getRestaurants = async (city) => {
-    const response = await API.get(`/api/restaurants?city=${city}`);
+    const response = await API.get(`/restaurants?city=${city}`);
     console.log("FIRST ITEM FULL:", JSON.stringify(response.data[0]));
     return (response.data || []).map(r => ({
         ...r,
@@ -17,21 +17,21 @@ export const getRestaurants = async (city) => {
     }));
 };
 export const getRestaurantById = async (id) => {
-    const response = await API.get(`/api/restaurants/${id}`);
+    const response = await API.get(`/restaurants/${id}`);
     return response.data;
 };
 
 export const createRestaurant = async (data) => {
-    const response = await API.post("/api/restaurants/create", data);
+    const response = await API.post("/restaurants/create", data);
     return response.data;
 };
 
 export const getMenu = async (restaurantId) => {
-    const response = await API.get(`/api/menu/${restaurantId}`);
+    const response = await API.get(`/menu/${restaurantId}`);
     return response.data;
 };
 
 export const addMenuItem = async (data) => {
-    const response = await API.post("/api/menu/add", data);
+    const response = await API.post("/menu/add", data);
     return response.data;
 };

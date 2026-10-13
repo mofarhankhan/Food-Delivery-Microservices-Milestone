@@ -2,7 +2,7 @@ import API from "./api";
 
 export const registerPartner = async (data) => {
     const response = await API.post(
-        `/api/delivery/register`,
+        `/delivery/register`,
         null,
         {
             params: {
@@ -18,11 +18,11 @@ export const registerPartner = async (data) => {
 };
 
 export const getAvailablePartners = async () => {
-    const response = await API.get("/api/delivery/available");
+    const response = await API.get("/delivery/available");
     return response.data;
 };
 
 export const getPartnerById = async (id) => {
-    const response = await API.get(`/api/delivery/partner/${id}`);
+    const response = await API.get(`/delivery/partner/${id}`);
     return response.data;
 };

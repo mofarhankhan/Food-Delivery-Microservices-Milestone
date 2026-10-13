@@ -8,26 +8,26 @@ import API from './api';
 // ─── STATS ───────────────────────────────────────────
 
 export const getAdminStats = async () => {
-    const response = await API.get('/api/admin/stats');
+    const response = await API.get('/admin/stats');
     return response.data;
 };
 
 // ─── USERS ───────────────────────────────────────────
 
 export const getAllUsers = async () => {
-    const response = await API.get('/api/admin/users');
+    const response = await API.get('/admin/users');
     return response.data;
 };
 
 export const deleteUser = async (id) => {
     const response = await API.delete(
-        `/api/admin/users/${id}`);
+        `/admin/users/${id}`);
     return response.data;
 };
 
 export const updateUserRole = async (id, newRole) => {
     const response = await API.put(
-        `/api/admin/users/${id}/role`,
+        `/admin/users/${id}/role`,
         { role: newRole }
     );
     return response.data;
@@ -37,19 +37,19 @@ export const updateUserRole = async (id, newRole) => {
 
 export const getAllRestaurants = async () => {
     const response = await API.get(
-        '/api/admin/restaurants');
+        '/admin/restaurants');
     return response.data;
 };
 
 export const deleteRestaurant = async (id) => {
     const response = await API.delete(
-        `/api/admin/restaurants/${id}`);
+        `/admin/restaurants/${id}`);
     return response.data;
 };
 
 export const toggleRestaurant = async (id) => {
     const response = await API.put(
-        `/api/admin/restaurants/${id}/toggle`);
+        `/admin/restaurants/${id}/toggle`);
     return response.data;
 };
 
@@ -57,19 +57,19 @@ export const toggleRestaurant = async (id) => {
 
 export const getAllDeliveryPartners = async () => {
     const response = await API.get(
-        '/api/admin/delivery-partners');
+        '/admin/delivery-partners');
     return response.data;
 };
 
 export const deleteDeliveryPartner = async (id) => {
     const response = await API.delete(
-        `/api/admin/delivery-partners/${id}`);
+        `/admin/delivery-partners/${id}`);
     return response.data;
 };
 
 export const toggleDeliveryPartner = async (id) => {
     const response = await API.put(
-        `/api/admin/delivery-partners/${id}/toggle`);
+        `/admin/delivery-partners/${id}/toggle`);
     return response.data;
 };
 
@@ -77,13 +77,13 @@ export const toggleDeliveryPartner = async (id) => {
 
 export const getAllOrders = async () => {
     const response = await API.get(
-        '/api/admin/orders');
+        '/admin/orders');
     return response.data;
 };
 
 export const deleteOrder = async (id) => {
     const response = await API.delete(
-        `/api/admin/orders/${id}`);
+        `/admin/orders/${id}`);
     return response.data;
 };
 
@@ -91,6 +91,6 @@ export const deleteOrder = async (id) => {
 
 export const getAdminLogs = async () => {
     const response = await API.get(
-        '/api/admin/logs');
+        '/admin/logs');
     return response.data;
 };

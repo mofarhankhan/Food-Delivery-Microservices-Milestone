@@ -25,7 +25,7 @@ export default function OrderTracking() {
 
     const loadOrder = async () => {
         try {
-            const res = await API.get(`/api/orders/${id}`);
+            const res = await API.get(`/orders/${id}`);
             setOrder(res.data);
             if (res.data.deliveryPartnerId) loadPartner(res.data.deliveryPartnerId);
             if (res.data.restaurantId) loadRestaurant(res.data.restaurantId);
@@ -34,10 +34,10 @@ export default function OrderTracking() {
     };
 
     const loadPartner = async (pid) => {
-        try { const r = await API.get(`/api/delivery/partner/${pid}`); setPartner(r.data); } catch {}
+        try { const r = await API.get(`/delivery/partner/${pid}`); setPartner(r.data); } catch {}
     };
     const loadRestaurant = async (rid) => {
-        try { const r = await API.get(`/api/restaurants/${rid}`); setRestaurant(r.data); } catch {}
+        try { const r = await API.get(`/restaurants/${rid}`); setRestaurant(r.data); } catch {}
     };
 
     const currentStep = STEPS.findIndex(s => s.status === order?.status);

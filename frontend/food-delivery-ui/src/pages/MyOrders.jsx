@@ -68,7 +68,7 @@ export default function MyOrders() {
     const loadOrders = async () => {
         try {
             const userId = localStorage.getItem('userId');
-            const res = await API.get('/api/orders/my-orders', {
+            const res = await API.get('/orders/my-orders', {
                 headers: { 'X-User-Id': userId }
             });
             const fetchedOrders = res.data || [];
@@ -96,7 +96,7 @@ export default function MyOrders() {
         const map = {};
         await Promise.all(partnerIds.map(async (id) => {
             try {
-                const res = await API.get(`/api/delivery/partner/${id}`);
+                const res = await API.get(`/delivery/partner/${id}`);
                 map[id] = res.data;
             } catch (e) { console.log(`Partner ${id} error:`, e); }
         }));
@@ -107,7 +107,7 @@ export default function MyOrders() {
         const map = {};
         await Promise.all(restaurantIds.map(async (id) => {
             try {
-                const res = await API.get(`/api/restaurants/${id}`);
+                const res = await API.get(`/restaurants/${id}`);
                 map[id] = res.data;
             } catch (e) { console.log(`Restaurant ${id} error:`, e); }
         }));

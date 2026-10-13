@@ -31,7 +31,7 @@ export default function RestaurantDashboard() {
         const userId = localStorage.getItem('userId');
         
         const response = await API.get(
-            '/api/orders/restaurant-orders', {
+            '/orders/restaurant-orders', {
             headers: { 'X-User-Id': userId }
         });
         const fetchedOrders = response.data || [];
@@ -54,7 +54,7 @@ export default function RestaurantDashboard() {
         const map = {};
         await Promise.all(partnerIds.map(async (id) => {
             try {
-                const res = await API.get(`/api/delivery/partner/${id}`);
+                const res = await API.get(`/delivery/partner/${id}`);
                 map[id] = res.data;
             } catch (e) { console.log(`Partner ${id} error:`, e); }
         }));
@@ -63,7 +63,7 @@ export default function RestaurantDashboard() {
 
     const updateStatus = async (orderId, newStatus) => {
         try {
-            await API.put(`/api/orders/${orderId}/status?status=${newStatus}`);
+            await API.put(`/orders/${orderId}/status?status=${newStatus}`);
             loadOrders();
         } catch (err) {
             alert('Update failed!');

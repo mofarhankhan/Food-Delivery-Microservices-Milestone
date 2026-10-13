@@ -29,7 +29,7 @@ export default function DeliveryDashboard() {
         setLoading(true);
         try {
             const partnerId = localStorage.getItem('userId');
-            const response = await API.get('/api/orders/delivery-orders', {
+            const response = await API.get('/orders/delivery-orders', {
                 headers: { 'X-User-Id': partnerId }
             });
             const fetchedOrders = response.data || [];
@@ -52,7 +52,7 @@ export default function DeliveryDashboard() {
         const map = {};
         await Promise.all(restaurantIds.map(async (id) => {
             try {
-                const res = await API.get(`/api/restaurants/${id}`);
+                const res = await API.get(`/restaurants/${id}`);
                 map[id] = res.data;
             } catch (e) {
                 console.log(`Restaurant ${id} error:`, e);
@@ -65,7 +65,7 @@ export default function DeliveryDashboard() {
         try {
             const partnerId = localStorage.getItem('userId');
             await API.put(
-                `/api/orders/${orderId}/status?status=${newStatus}`,
+                `/orders/${orderId}/status?status=${newStatus}`,
                 {},
                 { headers: { 'X-User-Id': partnerId } }
             );

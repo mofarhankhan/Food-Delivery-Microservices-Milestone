@@ -24,14 +24,14 @@ const saveAuthData = (data) => {
 
 // ---- Register ----
 export const register = async (data) => {
-    const response = await API.post('/api/auth/register', data);
+    const response = await API.post('/auth/register', data);
     saveAuthData(response.data);
     return response.data;
 };
 
 // ---- Login ----
 export const login = async (data) => {
-    const response = await API.post('/api/auth/login', data);
+    const response = await API.post('/auth/login', data);
     saveAuthData(response.data);
     return response.data;
 };
