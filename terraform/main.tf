@@ -3,7 +3,6 @@ resource "aws_security_group" "devops" {
   description = "Dedicated security group for future DevOps infrastructure"
   vpc_id      = data.aws_vpc.existing.id
 
-  egress = []
 
   tags = {
     Name      = "food-delivery-devops-sg"
